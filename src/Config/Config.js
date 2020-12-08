@@ -1,0 +1,1 @@
+export const authBackURL = "http://localhost:8000/admin/login";
