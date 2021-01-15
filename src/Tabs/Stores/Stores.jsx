@@ -14,7 +14,7 @@ export const StoreList = (props) => (
             <TextField source="phone" label="Cel" />
             <TextField source="description" label="Descpripción" />
             <DateField source="user.createdAt" label="Creado" />
-            <EditButton basePath="/Stores" />
+            <EditButton basePath="/store" />
         </Datagrid>
     </List>
 );
@@ -24,14 +24,13 @@ const StoreTitle = ({ record }) => {
 };
 
 export const StoreEdit = (props) => (
-    <Edit title={<UserTitle />} {...props}>
+    <Edit title={<StoreTitle />} {...props}>
         <SimpleForm>
             <TextInput disabled source="id" />
             <TextInput source="name" />
+            <TextInput source="phone" />
+            <TextInput source="name" />
             <TextInput multiline source="description" />
-            <DateInput label="Publication date" source="published_at" />
-            <TextInput source="average_note" />
-            <TextInput disabled label="Nb views" source="views" />
         </SimpleForm>
     </Edit>
 );

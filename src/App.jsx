@@ -1,10 +1,10 @@
 import React from 'react'
 import { Admin, Resource, fetchUtils } from 'react-admin';
 import "./App.css"
-import { PostList, PostEdit, PostCreate, PostIcon } from './Tabs/Posts/Posts';
-import { UserList, UserEdit, UserCreate, UserIcon } from './Tabs/Users/Users';
+
 import { ClientList, ClientEdit, ClientCreate, ClientIcon } from './Tabs/Clients/Clients';
 import { StoreList, StoreEdit, StoreCreate, StoreIcon } from './Tabs/Stores/Stores';
+import { TagsCreate, TagsEdit, TagsList, TagsIcon } from './Tabs/Tags/Tags'
 import authProvider from './Api/Auth';
 import restProvider from 'ra-data-simple-rest';
 import MyLoginPage from './Views/Login';
@@ -21,9 +21,9 @@ export default function App() {
     }
     return (
         <Admin authProvider={authProvider} dataProvider={restProvider('http://localhost:8000', httpClient)}>
-            {/*} <Resource name="user" list={UserList} edit={UserEdit} create={UserCreate} icon={UserIcon} options={{ label: "Usuarios" }} />*/}
-            <Resource name="client" list={ClientList} edit={ClientEdit} create={ClientCreate} icon={ClientIcon} options={{ label: "Usuarios" }} />
             <Resource name="store" list={StoreList} edit={StoreEdit} create={StoreCreate} icon={StoreIcon} options={{ label: "Tiendas" }} />
+            <Resource name="tag" list={TagsList} edit={TagsEdit} create={TagsCreate} icon={TagsIcon} options={{ label: "Tags" }} />
+
         </Admin>
     )
 } 

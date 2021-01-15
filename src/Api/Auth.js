@@ -42,7 +42,7 @@ export default {
     // called when the user navigates to a new location, to check for authentication
     checkAuth: () => localStorage.getItem('token')
         ? Promise.resolve()
-        : Promise.reject({ redirectTo: '/no-access' }),
+        : Promise.reject({ redirectTo: '/login' }),
     // called when the user navigates to a new location, to check for permissions / roles
     getPermissions: () => Promise.resolve(),
 
