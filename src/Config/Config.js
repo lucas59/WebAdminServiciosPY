@@ -1,1 +1,1 @@
-export const authBackURL = "http://localhost:8000/admin/login";
+export const authBackURL = process.env.BACKEND_URL + "/admin/login";

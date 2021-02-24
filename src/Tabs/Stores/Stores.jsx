@@ -1,6 +1,5 @@
 import * as React from "react";
-import { SimpleFormIterator, List, Datagrid, Edit, Create, SimpleForm, DateField, TextField, EditButton, TextInput, DateInput, BooleanField, ImageField, BooleanInput, ImageInput, ArrayInput } from 'react-admin';
-import RichTextInput from 'ra-input-rich-text';
+import { SimpleFormIterator, List, Datagrid, Edit, Create, SimpleForm, DateField, TextField, EditButton, TextInput, DateInput, BooleanField, ImageField, BooleanInput, ImageInput, ArrayInput, SelectInput } from 'react-admin';
 import ShopIcon from '@material-ui/icons/Store';
 export const StoreIcon = ShopIcon;
 
@@ -9,7 +8,7 @@ export const StoreList = (props) => (
         <Datagrid>
             <TextField source="id" />
             <TextField source="name" label="Nombre" />
-            <TextField source="email" label="Correo" />
+            <TextField source="user.email" label="Correo" />
             <TextField source="type" label="Estado" />
             <TextField source="phone" label="Cel" />
             <TextField source="description" label="Descpripción" />
@@ -36,22 +35,21 @@ export const StoreEdit = (props) => (
 );
 
 export const StoreCreate = (props) => (
-    <Create title="Nuevo servicio" {...props}>
+    <Create title="Nuevo comercio" {...props}>
         <SimpleForm>
             <TextInput source="name" label="Nombre" />
             <TextInput source="email" type="email" label="Correo" />
             <TextInput source="password" type="password" label="Contraseña" />
             <TextInput source="phone" label="Cel" />
-            <BooleanInput label="Subscripto" source="subscribed" />
+            <TextInput source="description" label="Descripción" />
+            <TextInput source="address" label="Dirección" />
+            <TextInput source="locality" label="Localidad" />
 
-            <RichTextInput source="body" />
-            
-            <ImageInput source="pictures" label="Foto de perfíl" accept="image/*" placeholder={<p>Arrastre y suelte la imagen a este cuadro</p>}>
-                <ImageField source="src" title="title" />
-            </ImageInput>
-            <ImageInput source="pictures" label="Foto de portada" accept="image/*" placeholder={<p>Arrastre y suelte la imagen a este cuadro</p>}>
-                <ImageField source="src" title="title" />
-            </ImageInput>
+            <TextInput type="number" source="latitude" label="Latitud" />
+            <TextInput type="number" source="longitude" label="Longitud" />
+
+            <TextInput type="number" source="tagId" label="Tag" />
+    
         </SimpleForm>
     </Create>
 );

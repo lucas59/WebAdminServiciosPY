@@ -11,7 +11,6 @@ export default {
         });
         return fetch(request)
             .then(response => {
-                console.log(response);
                 if (response.status < 200 || response.status >= 300) {
                     throw new Error(response.statusText);
                 }
@@ -21,7 +20,7 @@ export default {
                 const decodedToken = decodeJwt(token);
                 localStorage.setItem('token', token);
             }).catch((err) => {
-                console.log("ERROR: ", err);
+                console.log("Error: ", err);
                 return;
             })
     },

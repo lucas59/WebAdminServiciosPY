@@ -11,7 +11,9 @@ export const TagsList = (props) => (
             <TextField source="id" />
             <TextField source="title" label="Titulo" />
             <TextField source="icon" label="Icono" />
-            <DateField source="user.createdAt" label="Creado" />
+            <TextField source="color" label="Color" />
+
+            <DateField source="createdAt" label="Creado" />
             <EditButton basePath="/tag" />
         </Datagrid>
     </List>
@@ -27,6 +29,7 @@ export const TagsEdit = (props) => (
             <TextInput disabled source="id" />
             <TextInput source="title" label="Titulo" />
             <TextInput source="icon" label="Icono" />
+            <TextInput source="color" label="color" />
         </SimpleForm>
     </Edit>
 );
@@ -36,6 +39,7 @@ export const TagsCreate = (props) => (
         <SimpleForm>
             <TextInput source="title" label="Titulo" />
             <TextInput source="icon" label="Icono" />
+            <TextInput source="color" label="Color" />
         </SimpleForm>
     </Create>
 );

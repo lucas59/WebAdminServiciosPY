@@ -7,7 +7,7 @@ import { StoreList, StoreEdit, StoreCreate, StoreIcon } from './Tabs/Stores/Stor
 import { TagsCreate, TagsEdit, TagsList, TagsIcon } from './Tabs/Tags/Tags'
 import authProvider from './Api/Auth';
 import restProvider from 'ra-data-simple-rest';
-import MyLoginPage from './Views/Login';
+import '../src/Styles/Login.css';
 
 export default function App() {
     const httpClient = (url, options = {}) => {
@@ -20,10 +20,9 @@ export default function App() {
         return fetchUtils.fetchJson(url, options);
     }
     return (
-        <Admin authProvider={authProvider} dataProvider={restProvider('http://localhost:8000', httpClient)}>
+        <Admin authProvider={authProvider} dataProvider={restProvider(process.env.BACKEND_URL, httpClient)}>
             <Resource name="store" list={StoreList} edit={StoreEdit} create={StoreCreate} icon={StoreIcon} options={{ label: "Tiendas" }} />
             <Resource name="tag" list={TagsList} edit={TagsEdit} create={TagsCreate} icon={TagsIcon} options={{ label: "Tags" }} />
-
         </Admin>
     )
 } 
